@@ -30,9 +30,17 @@ public class MainController {
 
     @GetMapping("getImage")
     public ResponseEntity<Images> getImage(@RequestParam Integer id){
-        System.out.println("a");
         try {
             return new ResponseEntity(imagesService.getImageById(id), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("getImages")
+    public ResponseEntity<Images> getImages(){
+        try {
+            return new ResponseEntity(imagesService.getAllImages(), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
