@@ -1,0 +1,23 @@
+body{
+    align-items: center;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+nav{
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+img{
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+#images{
+    text-align: left;
+    overflow-x: auto;
+    white-space: nowrap;
+}
