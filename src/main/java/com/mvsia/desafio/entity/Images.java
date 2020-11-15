@@ -10,6 +10,7 @@ public class Images {
     private Integer id;
     @Lob
     private byte[] image;
+    private Integer bank;
 
     public Integer getId() {
         return id;
@@ -21,5 +22,13 @@ public class Images {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public Integer getBank() {
+        return bank;
+    }
+
+    public void setBank(Integer bank) {
+        this.bank = bank;
     }
 }
