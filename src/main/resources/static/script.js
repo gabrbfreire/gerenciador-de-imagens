@@ -22,7 +22,9 @@ fetch('getImages')
       a.innerHTML = 'Banco ' + item;
       a.id = "bank-" + item;
 
-      a.addEventListener('click', () => createImgs(item));
+      a.addEventListener('click', () => {
+        createImgs(item);
+      });
 
       li.appendChild(a);
       banks.appendChild(li);
@@ -40,18 +42,20 @@ fetch('getImages')
   });
 
 //Create images imgs
-function createImgs(id) {
-  console.log(allData)
-  console.log(allBanks)
+function createImgs(bank) {
+  console.log(allData);
+  console.log(bank);
+  images.innerHTML = '';
+
   allData.forEach((item, index) => {
-    if (item.id = id) {
+    if (item.bank == bank) {
       //create imgs
       let img = document.createElement("img");
       img.src = "data:image/png;base64," + item.image;
       //images.innerHTML = "&#10006";
       images.appendChild(img);
     }
-  })
+  });
 }
 
 
