@@ -1,10 +1,9 @@
 package com.mvsia.desafio.service;
 
-import com.mvsia.desafio.entity.Images;
+import com.mvsia.desafio.entity.Image;
 import com.mvsia.desafio.repository.ImagesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,17 +15,17 @@ public class ImagesService {
     private ImagesRepository repository;
 
     public void addImage(byte[] file, Integer bank){
-        Images image = new Images();
+        Image image = new Image();
         image.setImage(file);
         image.setBank(bank);
         repository.save(image);
     }
 
-    public List<Images> getAllImages(){
+    public List<Image> getAllImages(){
         return repository.findAll();
     }
 
-    public Optional<Images> getImageById(Integer id){
+    public Optional<Image> getImageById(Integer id){
         return repository.findById(id);
     }
 }

@@ -3,7 +3,7 @@ package com.mvsia.desafio.entity;
 import javax.persistence.*;
 
 @Entity(name = "images")
-public class Images {
+public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
