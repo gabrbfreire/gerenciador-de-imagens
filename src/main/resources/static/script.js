@@ -83,6 +83,9 @@ function createImgs(bank) {
           //create imgs
           let img = document.createElement("img");
           img.src = "data:image/png;base64," + item.image;
+          img.onclick = () => {
+            document.getElementById('cropper-img').src = "data:image/png;base64," + item.image;
+          }
           //images.innerHTML = "&#10006";
           images.appendChild(img);
         }
@@ -109,8 +112,16 @@ $('#load-file').submit((e) => {
   });
 });
 
-// INSERT bank
-$('#new-bank').on('click', () => {
-
-
+const image = document.getElementById('cropper-img');
+const cropper = new Cropper(image, {
+  aspectRatio: 16 / 9,
+  crop(event) {
+    console.log(event.detail.x);
+    console.log(event.detail.y);
+    console.log(event.detail.width);
+    console.log(event.detail.height);
+    console.log(event.detail.rotate);
+    console.log(event.detail.scaleX);
+    console.log(event.detail.scaleY);
+  },
 });
