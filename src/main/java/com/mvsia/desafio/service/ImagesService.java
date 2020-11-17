@@ -15,9 +15,10 @@ public class ImagesService {
     @Autowired
     private ImagesRepository repository;
 
-    public void addImage(byte[] file){
+    public void addImage(byte[] file, Integer bank){
         Images image = new Images();
         image.setImage(file);
+        image.setBank(bank);
         repository.save(image);
     }
 

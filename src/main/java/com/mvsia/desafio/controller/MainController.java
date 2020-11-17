@@ -18,9 +18,9 @@ public class MainController {
     private ImagesService imagesService;
 
     @PostMapping("addImage")
-    public ResponseEntity<HttpStatus> addImage(@RequestParam MultipartFile file){
+    public ResponseEntity<HttpStatus> addImage(@RequestParam MultipartFile file, @RequestParam Integer bank){
         try {
-            imagesService.addImage(file.getBytes());
+            imagesService.addImage(file.getBytes(), bank);
             return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

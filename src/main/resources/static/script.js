@@ -1,7 +1,9 @@
 let allData;
 let allBanks = [];
+let currentBank;
 
-//Get data and create baks anchors
+
+//Get data and create banks anchors
 fetch('getImages')
   .then(response => response.json())
   .then(data => {
@@ -41,9 +43,13 @@ fetch('getImages')
     banks.appendChild(li);
   });
 
+
+
 //Create images imgs
 function createImgs(bank) {
   console.log(allData);
+  document.getElementById('bank-input').value = bank;
+  currentBank = bank;
   console.log(bank);
   images.innerHTML = '';
 
@@ -58,21 +64,39 @@ function createImgs(bank) {
   });
 }
 
+/* const image = document.getElementById('image');
+const cropper = new Cropper(image, {
+  aspectRatio: 16 / 9,
+  crop(event) {
+    console.log(event.detail.x);
+    console.log(event.detail.y);
+    console.log(event.detail.width);
+    console.log(event.detail.height);
+    console.log(event.detail.rotate);
+    console.log(event.detail.scaleX);
+    console.log(event.detail.scaleY);
+  },
+}); */
 
-/* fetch(url, {
+document.getElementById('load-file').onsubmit(() => {
+  let parameters = 'file=' + document.getElementById('file-input').value + '&' + 'bank=' + document.getElementById('bank-input').value;
+
+  fetch(url, {
     method: "POST",
-    body: JSON.stringify(data),
+    body: parameters,
     headers: {
       "Content-Type": "application/json"
     },
     credentials: "same-origin"
-  }).then(function(response) {
+  }).then(function (response) {
     response.status     //=> number 100–599
     response.statusText //=> String
     response.headers    //=> Headers
     response.url        //=> String
 
     return response.text()
-  }, function(error) {
+  }, function (error) {
     error.message //=> String
-  }) */
+  });
+})
+
